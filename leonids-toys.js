@@ -21,7 +21,7 @@ const toys = [
     ageUse: 4,
     price: 225.00,
     size: "large"
-}
+ }
 ]
 const kareoke = {
     id: 4,
@@ -42,17 +42,15 @@ const log = {
 }
 toys.push(kareoke);
 toys.push(log);
+
 /*for (const toy of toys) {
-    console.log(toy.name)
-}
-for (const toy of toys) {
     console.log(`The ${toy.name} costs ${toy.price} dollars.`)
-    
-}
-for (const toy of toys) {
+}*/
+
+/*for (const toy of toys) {
     toy.price = toy.price * .05 + toy.price;
     console.log(`The new price of the ${toy.name} is ${toy.price} dollars.`)
-}*/
+}
 const toyToFind = 5
 
 for (const toy of toys) {
@@ -69,16 +67,38 @@ const powderedToastMan = {
         price: 10.00,
         size: "Large"
 }
-const addToyToInventory = (toyObject) => {
+const addToyToInventory = (toyObject, price) => {
     const lastIndex = toys.length - 1
     const currentLastToy = toys[lastIndex]
     const maxId = currentLastToy.id
     const idForNewToy = maxId + 1
     toyObject.id = idForNewToy
-    toys.push(toyObject)
+   
+    toys.push(toyObject, price)
+    
 }
-addToyToInventory(powderedToastMan)
+addToyToInventory(powderedToastMan, 300.00)
+
 
 for (const toy of toys) {
     console.log(`The ${toy.name} is made by ${toy.maker} and costs ${toy.price} dollars.`)
+    
 }
+
+
+const toyPrices = new Map()
+price.set("Rustler", 300.00)
+price.set("Star Flyer", 25.00)
+price.set("First Set", 225.00)
+price.set("Ren and Stimpy", 10.00)*/
+
+
+const removeProduct = (itemId) => {
+    for (const toy of toys) {
+        if (toy.id === itemId) {
+          return toys.splice(0, itemId)
+        }
+    }
+}
+removeProduct(1)
+console.log(toys)
